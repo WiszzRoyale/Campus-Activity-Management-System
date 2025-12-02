@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Campus Activity Management System</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        <!-- Navigation -->
+        <header>
+            <div class="logo">Campus Activities</div>
+            <nav>
+                <ul>
+                    <li><a href="#" data-page="home">Home</a></li>
+                    <li><a href="#" data-page="activities">Activities List</a></li>
+                    <li><a href="#" data-page="register">Registration</a></li>
+                    <li><a href="#" data-page="profile">Personal Center</a></li>
+                </ul>
+                <div class="hamburger">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Main Content Area -->
+        <main>
+            <!-- Home Page -->
+            <section id="home" class="page active">
+                <h1>Welcome to Campus Activities Page</h1>
+                <div class="hero">
+                    <p>Figure out more, join and manage campus events</p>
+                </div>
+                
+                <div class="category-container">
+                    <div class="category-card" data-category="academic">
+                        <img src="images/academic.jpg" alt="Academic">
+                        <h3>Academic</h3>
+                        <p>Expand your insight and skills through competitions, bootcamp and education-fair.</p>
+                    </div>
+                    <div class="category-card" data-category="sports">
+                        <img src="images/sports.jpg" alt="Sports">
+                        <h3>Sports</h3>
+                        <p>Stay active and healthy with our wide range of sport activities.</p>
+                    </div>
+                    <div class="category-card" data-category="arts">
+                        <img src="images/arts.jpg" alt="Arts">
+                        <h3>Arts</h3>
+                        <p>Express your creativity through music, theater, and visual arts events.</p>
+                    </div>
+                </div>
+                
+                <div class="upcoming-events">
+                    <h2>Upcoming Events</h2>
+                    <div class="event-cards">
+                        <!-- Will be control by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Activities Page -->
+            <section id="activities" class="page">
+                <h1>All Activities</h1>
+                
+                <div class="filter-container">
+                    <label for="category-filter">Filter by Category:</label>
+                    <select id="category-filter">
+                        <option value="all">All Categories</option>
+                        <option value="academic">Academic</option>
+                        <option value="sports">Sports</option>
+                        <option value="arts">Arts</option>
+                    </select>
+                </div>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Time</th>
+                                <th>Location</th>
+                                <th>Category</th>
+                                <th>Details</th>
+                            </tr>
+                        </thead>
+                        <tbody id="activity-table">
+                            <!-- Will be control by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="load-more-container">
+                    <button id="load-more">Load More Activities</button>
+                </div>
+            </section>
+
+            <!-- Activity Details Page -->
+            <section id="details" class="page">
+                <div class="details-container">
+                    <!-- Will be control by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Registration Page -->
+            <section id="register" class="page">
+                <h1>Activity Registration Form</h1>
+                
+                <form id="registration-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" required minlength="4">
+                        <div class="error-message"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="student-id">Student ID</label>
+                        <input type="text" id="student-id" required pattern="\d{8}">
+                        <div class="error-message"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="major">Major</label>
+                        <input type="text" id="major" required>
+                        <div class="error-message"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                        <div class="error-message"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="activity">Select Activity</label>
+                        <select id="activity" required>
+                            <option value="">Choose an activity</option>
+                            <!-- Will be control by JavaScript -->
+                        </select>
+                        <div class="error-message"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <button type="submit">Register</button>
+                    </div>
+                </form>
+                
+                <div id="registration-success" class="success-message">
+                    <h2>Registration Successful!</h2>
+                    <p>Thank you for registering. Check your email for the confirmation.</p>
+                    <button id="back-to-activities">Back to Activities</button>
+                </div>
+            </section>
+
+            <!-- Profile Page -->
+            <section id="profile" class="page">
+                <h1>Personal Center</h1>
+                
+                <div class="user-info">
+                    <h2>User Information</h2>
+                    <div class="info-card">
+                        <p><strong>Name:</strong> <span id="user-name">-</span></p>
+                        <p><strong>ID:</strong> <span id="user-id">-</span></p>
+                        <p><strong>Major:</strong> <span id="user-major">-</span></p>
+                        <p><strong>Email:</strong> <span id="user-email">-</span></p>
+                    </div>
+                </div>
+                
+                <div class="registered-activities">
+                    <h2>Registered Activities</h2>
+                    <div id="activities-list">
+                        <p id="no-activities">You haven't joined any activities yet.</p>
+                        <!-- Will be control by JavaScript -->
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2025 Campus Activity Management System</p>
+            <p>Frontend and for demo only</p>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+</html>
